@@ -1,0 +1,652 @@
+/* ============== 1. 設計變數 ============== */
+:root {
+  /* 顏色（主色取自 Figma color/primary/50） */
+  --color-primary: #FDF7F1;   /* 米白背景 */
+  --color-dark:    #2B221C;   /* 深咖啡（深色區塊/文字） */
+  --color-accent:  #E8773D;   /* 橘色點綴 */
+  --color-text:    #3A2E25;
+  --color-muted:   #8A7B6D;
+  --color-white:   #ffffff;
+
+  /* 字體 */
+  --font-en: 'Poppins', sans-serif;
+  --font-zh: 'Noto Sans TC', sans-serif;
+
+  /* 字級 */
+  --fs-h1: 64px;
+  --fs-h2: 40px;
+  --fs-h3: 22px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+
+  /* 間距 */
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 80px;
+
+  /* 版面 */
+  --container: 1200px;
+  --radius: 16px;
+}
+
+/* ============== 2. 基礎 ============== */
+body {
+  font-family: var(--font-zh), var(--font-en);
+  color: var(--color-text);
+  background: var(--color-primary);
+  line-height: 1.6;
+  font-size: var(--fs-body);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-inline: 24px;   /* 用 padding 控制左右留白，避免 x 軸捲動 */
+}
+
+/* 按鈕共用 */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: .25s;
+}
+.btn--primary { background: var(--color-dark); color: var(--color-white); }
+.btn--primary:hover { background: var(--color-accent); }
+.btn--outline { border: 1px solid var(--color-dark); color: var(--color-dark); }
+.btn--outline:hover { background: var(--color-dark); color: var(--color-white); }
+
+/* ============== 3. Header ============== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.logo {
+  font-family: var(--font-en);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+.nav__list a {
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color .2s;
+}
+.nav__list a:hover { color: var(--color-accent); }
+.nav__btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--color-dark);
+  color: var(--color-white) !important;
+}
+.nav__btn:hover { background: var(--color-accent); }
+
+/* 漢堡按鈕（桌機隱藏） */
+.nav-toggle { display: none; flex-direction: column; gap: 5px; width: 28px; }
+.nav-toggle span {
+  display: block; height: 2px; width: 100%;
+  background: var(--color-dark); transition: .3s;
+}
+
+/* ============== 4. Hero ============== */
+.hero { position: relative; padding-block: var(--space-xl); }
+.hero__inner { position: relative; z-index: 1; }
+
+/* Hero 裝飾（絕對定位、置中區域避免溢出 x 軸） */
+.hero__deco {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  animation: heroFloat 3.5s ease-in-out infinite;
+}
+.hero__deco img { display: block; width: 100%; }
+/* 橘色色塊：疊在人物照左下角（相對 .hero__image 定位，避免溢出） */
+.hero__deco--blob { bottom: -18px; left: -28px; width: 110px; z-index: 2; opacity: .95; animation-delay: 0s; }
+
+/* 太陽＋虛線群組：線固定在太陽 6 點鐘方向，整組一起浮動 */
+.hero__group {
+  position: absolute;
+  z-index: 0;
+  top: 60px;
+  left: 13%;
+  width: 76px;            /* = 太陽尺寸 */
+  pointer-events: none;
+  animation: heroFloat 4s ease-in-out infinite;
+}
+.hero__group-sun { display: block; width: 100%; }
+.hero__group-dash {
+  position: absolute;
+  top: 16px;              /* 讓弧線左端點落在太陽底部 */
+  left: 35px;             /* 端點對齊太陽中心（6 點鐘） */
+  width: 260px;
+  max-width: none;        /* 覆蓋 reset 的 img max-width:100%，否則被壓成群組寬度 */
+  display: block;
+  animation: drawLineLoop 4.5s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  50%  { transform: translateY(-22px) rotate(10deg) scale(1.05); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+@keyframes drawLineLoop {
+  0%, 100% { clip-path: inset(0 100% 0 0); }
+  30%, 70% { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__deco,
+  .hero__group,
+  .hero__group-dash { animation: none; }
+}
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+.hero__text { flex: 1; }
+.hero__hello {
+  font-family: var(--font-en);
+  font-size: var(--fs-h3);
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.hero__title {
+  font-family: var(--font-en);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+.hero__desc { color: var(--color-muted); margin-bottom: var(--space-lg); }
+.hero__actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+.hero__image { position: relative; flex: 0 0 520px; }
+.hero__image img { width: 100%; border-radius: var(--radius); }
+
+/* ============== 共用：區塊標題 ============== */
+.section__head { text-align: center; margin-bottom: var(--space-xl); }
+.section__head--left { text-align: left; }
+.section__label {
+  font-family: var(--font-en);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.section__title {
+  font-family: var(--font-en);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* ============== Services（深色區） ============== */
+.services {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-block: var(--space-xl);
+}
+.services .section__title { color: var(--color-white); }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: transform .25s;
+}
+.service-card:hover { transform: translateY(-6px); }
+.service-card__label {
+  font-family: var(--font-en);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+}
+.service-card__title {
+  font-size: var(--fs-h3);
+  color: var(--color-dark);
+}
+.service-card__desc {
+  flex: 1;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+.service-card__arrow {
+  align-self: flex-start;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-size: 18px;
+  transition: background .25s;
+}
+.service-card__arrow:hover { background: var(--color-accent); }
+
+/* ============== Projects（淺色區） ============== */
+.projects { padding-block: var(--space-xl); }
+.projects__list { display: grid; gap: var(--space-lg); }
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;   /* 僅作用於卡片，配合圓角裁切右側圖片 */
+  box-shadow: 0 10px 30px rgba(43, 34, 28, .06);
+}
+.project-card__body { align-self: center; padding: var(--space-lg); }
+.project-card__meta {
+  font-family: var(--font-en);
+  font-size: var(--fs-small);
+  letter-spacing: .5px;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+.project-card__title {
+  font-size: var(--fs-h3);
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+.project-card__desc {
+  color: var(--color-muted);
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-md);
+}
+.project-card__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.projects__more { text-align: center; margin-top: var(--space-lg); }
+
+/* ============== Blogs（部落格區，整合自我的 Flex 切版作業，scope 在 .blogs） ============== */
+.blogs { padding-block: var(--space-xl); }
+.blogs__layout { display: flex; gap: var(--space-lg); }
+
+.blogs .menu { width: 180px; flex: none; }
+.blogs .menu li { text-align: center; }
+.blogs .menu li a {
+  display: block;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text);
+  border-radius: 999px;
+  transition: color .2s;
+}
+.blogs .menu li a:hover { color: var(--color-accent); }
+.blogs .menu .highlight {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.blogs .blog {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.blogs .container-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+.blogs .container-item img {
+  flex: none;
+  width: 340px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.blogs .content { flex: 1; }
+.blogs .label {
+  font-weight: 500;
+  font-size: var(--fs-body);
+  color: var(--color-accent);
+}
+.blogs .content h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 12px 0;
+}
+.blogs .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blogs .button > span {
+  font-weight: 500;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+.blogs .tail { display: flex; gap: 12px; }
+.blogs .view,
+.blogs .share {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+.blogs .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 20px;
+  margin-right: 4px;
+}
+
+/* ============== Subscription（深色區） ============== */
+.subscribe { padding-block: var(--space-xl); }
+.subscribe__box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  border-radius: var(--radius);
+  overflow: hidden;   /* 僅作用於此卡片，配合圓角裁切背景圖 */
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/subscription_bg.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+.subscribe .section__title { color: var(--color-dark); margin-bottom: 12px; }
+.subscribe__desc { color: var(--color-text); max-width: 460px; }
+.subscribe__form {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 460px;
+}
+.subscribe__input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 20px;
+  border: 1px solid rgba(43, 34, 28, .15);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-text);
+}
+.btn--accent {
+  white-space: nowrap;
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+.btn--accent:hover { background: var(--color-white); color: var(--color-dark); }
+
+/* ============== Footer / Contact ============== */
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-block: var(--space-xl);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+.logo--light { color: var(--color-white); }
+.footer__tagline {
+  margin-top: 8px;
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, .6);
+}
+.footer__label {
+  font-family: var(--font-en);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+.footer__mail {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--color-white);
+}
+.footer__mail:hover { color: var(--color-accent); }
+.footer__social { display: flex; gap: 16px; }
+.footer__social a { font-weight: 600; color: rgba(255, 255, 255, .8); }
+.footer__social a:hover { color: var(--color-accent); }
+.footer__copy {
+  margin-top: var(--space-lg);
+  text-align: center;
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, .4);
+}
+
+/* ============== Blogs 首頁預覽（3 卡） ============== */
+.section__head--row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: left;
+}
+.btn-text {
+  font-weight: 600;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+.btn-text:hover { color: var(--color-dark); }
+
+.blog-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(43, 34, 28, .06);
+  transition: transform .25s;
+}
+.post-card:hover { transform: translateY(-6px); }
+.post-card__img img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.post-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: var(--space-md);
+}
+.post-card__tags {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--color-accent);
+}
+.post-card__title {
+  flex: 1;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+.post-card__stats { display: flex; gap: 12px; }
+.post-card__stats .stat { display: flex; align-items: center; }
+
+/* ============== Blog 分頁：橫幅 + 分頁器 ============== */
+.page-banner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  height: 300px;
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+  background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_banner.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 34, 28, .4);
+}
+.page-banner__watermark {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 180px;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, .12);
+  line-height: 1;
+  pointer-events: none;
+}
+.page-banner__inner { position: relative; z-index: 1; }
+.page-banner__title {
+  font-family: var(--font-en);
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.page-banner__sub { font-size: var(--fs-h3); margin-top: 4px; }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-xl);
+}
+.pagination a {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: background .2s;
+}
+.pagination a:hover { background: rgba(43, 34, 28, .06); }
+.pagination a.is-active { background: var(--color-dark); color: var(--color-white); }
+
+/* 導覽列當前頁 */
+.nav__list a.is-active { color: var(--color-accent); }
+
+/* ============== 5a. RWD：平板（max-width:1023px） ============== */
+@media (max-width: 1023px) {
+  :root { --fs-h1: 48px; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-preview { grid-template-columns: repeat(2, 1fr); }
+  .blogs .container-item img { width: 260px; height: 170px; }
+  /* Hero 圖片固定 520px 在平板過寬，改為彈性比例 */
+  .hero__image { flex: 0 0 40%; }
+}
+
+/* ============== 5b. RWD：手機（max-width:767px） ============== */
+@media (max-width: 767px) {
+  :root { --fs-h1: 40px; --fs-h2: 28px; }
+
+  .nav-toggle { display: flex; }
+  .nav {
+    position: absolute;
+    top: 80px; left: 0; right: 0;
+    background: var(--color-primary);
+    max-height: 0; overflow: hidden;     /* 僅作用於選單本身，非 body/第一層 div */
+    transition: max-height .3s ease;
+  }
+  .nav.is-open { max-height: 360px; }
+  .nav__list { flex-direction: column; gap: 0; }
+  .nav__list li { width: 100%; }
+  .nav__list a { display: block; padding: 14px 24px; }
+
+  .nav-toggle.is-active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-active span:nth-child(2){ opacity: 0; }
+  .nav-toggle.is-active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  .hero__inner { flex-direction: column; text-align: center; }
+  .hero__image { flex: none; width: 100%; max-width: 360px; }
+  .hero__actions { justify-content: center; }
+  .hero__deco { display: none; }
+
+  /* Services：單欄 */
+  .services__grid { grid-template-columns: 1fr; }
+
+  /* Projects：上下堆疊，圖片置頂 */
+  .project-card { grid-template-columns: 1fr; }
+  .project-card__img { order: -1; }
+  .project-card__img img { height: 220px; }
+  .project-card__body { padding: var(--space-md); }
+
+  /* Blogs 首頁預覽：單欄、標題與連結堆疊 */
+  .blog-preview { grid-template-columns: 1fr; }
+  .section__head--row { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* Blog 分頁橫幅縮小 */
+  .page-banner { height: 220px; }
+  .page-banner__title { font-size: 40px; }
+  .page-banner__watermark { font-size: 110px; }
+
+  /* Blogs：選單橫向 pill、卡片堆疊、圖片改滿版（修 x 軸） */
+  .blogs__layout { flex-direction: column; }
+  .blogs .menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .blogs .menu li a { padding: 8px 16px; font-size: 14px; }
+  .blogs .container-item { flex-direction: column; align-items: stretch; }
+  .blogs .container-item img { width: 100%; height: 200px; }
+
+  /* Subscription：縮小內距、表單滿版 */
+  .subscribe__box { padding: var(--space-lg); }
+  .subscribe__form { width: 100%; max-width: none; }
+
+  /* Footer：堆疊 */
+  .footer__inner { flex-direction: column; }
+}

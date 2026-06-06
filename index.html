@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nelson | 個人品牌網站</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== Header 導覽列 ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Nelson</a>
+
+      <!-- 漢堡按鈕（手機版才顯示） -->
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="#services">服務項目</a></li>
+          <li><a href="#projects">專案作品</a></li>
+          <li><a href="blog.html">部落格</a></li>
+          <li><a href="#subscription">訂閱</a></li>
+          <li><a href="#contact" class="nav__btn">聯絡我</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero 主視覺 ===== -->
+  <section class="hero">
+    <!-- 太陽 + 虛線（同一組，線固定在太陽 6 點鐘方向，一起浮動） -->
+    <span class="hero__group" aria-hidden="true">
+      <img class="hero__group-sun" src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/index_decora_3.png" alt="">
+      <img class="hero__group-dash" src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/index_decora_4.png" alt="">
+    </span>
+
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__hello">Hello,</p>
+        <h1 class="hero__title">I'm Nelson</h1>
+        <p class="hero__desc">
+          我是一名前端工程師，專注於打造美感與體驗兼具的網頁。<br>
+          歡迎瀏覽我的作品與部落格。
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">看看作品</a>
+          <a href="#contact" class="btn btn--outline">聯絡我</a>
+        </div>
+      </div>
+
+      <div class="hero__image" data-aos="fade-left">
+        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/index_person.png" alt="Nelson 個人形象照">
+        <!-- 橘色色塊裝飾，疊在照片左下角（純視覺） -->
+        <span class="hero__deco hero__deco--blob" aria-hidden="true">
+          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/index_decora_1.png" alt="">
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services 服務區（深色背景） ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section__head section__head--left">
+        <p class="section__label">WHAT I DO</p>
+        <h2 class="section__title">SERVICES</h2>
+      </div>
+
+      <div class="services__grid">
+        <article class="service-card" data-aos="fade-up">
+          <p class="service-card__label">DESIGN</p>
+          <h3 class="service-card__title">平面設計</h3>
+          <p class="service-card__desc">從名片、海報到品牌識別，打造一致且具記憶點的視覺風格。</p>
+          <a href="#projects" class="service-card__arrow" aria-label="平面設計，前往作品">&rarr;</a>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <p class="service-card__label">WEB</p>
+          <h3 class="service-card__title">網頁設計</h3>
+          <p class="service-card__desc">從版面到配色，規劃美感與使用體驗兼具的網站介面。</p>
+          <a href="#projects" class="service-card__arrow" aria-label="網頁設計，前往作品">&rarr;</a>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <p class="service-card__label">FRONTEND</p>
+          <h3 class="service-card__title">前端切版</h3>
+          <p class="service-card__desc">忠實還原設計稿，切出響應式、可互動的網頁介面。</p>
+          <a href="#projects" class="service-card__arrow" aria-label="前端切版，前往作品">&rarr;</a>
+        </article>
+
+        <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <p class="service-card__label">BACKEND</p>
+          <h3 class="service-card__title">後端開發</h3>
+          <p class="service-card__desc">串接 API 與資料庫，讓網站功能完整且穩定運作。</p>
+          <a href="#projects" class="service-card__arrow" aria-label="後端開發，前往作品">&rarr;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects 專案區（淺色背景） ===== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__label">RECENT WORK</p>
+        <h2 class="section__title">PROJECTS</h2>
+      </div>
+
+      <div class="projects__list">
+        <article class="project-card" data-aos="fade-up">
+          <div class="project-card__body">
+            <p class="project-card__meta">2026 · 網頁設計</p>
+            <h3 class="project-card__title">品牌形象官網</h3>
+            <p class="project-card__desc">為新創品牌打造首頁與形象頁，以一致的視覺語言強化專業識別與信任感。</p>
+            <a href="#" class="btn btn--primary">查看專案</a>
+          </div>
+          <div class="project-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/project_1.png" alt="品牌形象官網專案">
+          </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+          <div class="project-card__body">
+            <p class="project-card__meta">2025 · UI 設計</p>
+            <h3 class="project-card__title">行動點餐 App</h3>
+            <p class="project-card__desc">規劃直覺的點餐與結帳流程，優化介面層級與互動，提升下單轉換率。</p>
+            <a href="#" class="btn btn--primary">查看專案</a>
+          </div>
+          <div class="project-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/project_2.png" alt="行動點餐 App 專案">
+          </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up">
+          <div class="project-card__body">
+            <p class="project-card__meta">2025 · 前端切版</p>
+            <h3 class="project-card__title">電商活動網頁</h3>
+            <p class="project-card__desc">高度還原設計稿，完成響應式版面與動態互動，確保各裝置體驗一致。</p>
+            <a href="#" class="btn btn--primary">查看專案</a>
+          </div>
+          <div class="project-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/project_3.png" alt="電商活動網頁專案">
+          </div>
+        </article>
+      </div>
+
+      <div class="projects__more">
+        <a href="#" class="btn btn--outline">查看更多作品</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Blogs 部落格區（首頁預覽，完整版見 blog.html） ===== -->
+  <section class="blogs" id="blogs">
+    <div class="container">
+      <div class="section__head section__head--row">
+        <div>
+          <p class="section__label">MY ARTICLES</p>
+          <h2 class="section__title">BLOGS</h2>
+        </div>
+        <a href="blog.html" class="btn-text">查看更多 &rarr;</a>
+      </div>
+
+      <div class="blog-preview">
+        <article class="post-card" data-aos="fade-up">
+          <a href="blog.html" class="post-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_1.png" alt="網頁微互動藝術的抽象幾何流體視覺特效">
+          </a>
+          <div class="post-card__body">
+            <p class="post-card__tags">UIUX 設計 · 網頁設計 · 前端技術</p>
+            <h3 class="post-card__title">網頁裡的微互動藝術：利用 CSS 與 JS 動畫提升用戶轉化率</h3>
+            <div class="post-card__meta">
+              <span>Oct 16, 2022</span>
+              <div class="post-card__stats">
+                <span class="stat"><span class="material-symbols-outlined">visibility</span>110</span>
+                <span class="stat"><span class="material-symbols-outlined">share</span>2</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="blog.html" class="post-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_2.png" alt="智慧型手機畫面上展示的 Figma 介面與 Storybook 設計系統">
+          </a>
+          <div class="post-card__body">
+            <p class="post-card__tags">UIUX 設計 · 設計規範 · 前端技術</p>
+            <h3 class="post-card__title">10 年職人手記：運用 Figma 與 Storybook 打造企業級設計系統</h3>
+            <div class="post-card__meta">
+              <span>Oct 16, 2022</span>
+              <div class="post-card__stats">
+                <span class="stat"><span class="material-symbols-outlined">visibility</span>110</span>
+                <span class="stat"><span class="material-symbols-outlined">share</span>2</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="post-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="blog.html" class="post-card__img">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_3.png" alt="陽光照射下的綠色多肉植物盆栽與復古相機">
+          </a>
+          <div class="post-card__body">
+            <p class="post-card__tags">品牌設計 · 平面設計 · UIUX 設計</p>
+            <h3 class="post-card__title">從平面識別到數位體驗：以「植感生活」為例談品牌視覺轉譯</h3>
+            <div class="post-card__meta">
+              <span>Oct 16, 2022</span>
+              <div class="post-card__stats">
+                <span class="stat"><span class="material-symbols-outlined">visibility</span>110</span>
+                <span class="stat"><span class="material-symbols-outlined">share</span>2</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Subscription 訂閱區（深色背景） ===== -->
+  <section class="subscribe" id="subscription">
+    <div class="container">
+      <div class="subscribe__box" data-aos="fade-up">
+        <div class="subscribe__text">
+          <p class="section__label">SUBSCRIPTION</p>
+          <h2 class="section__title">訂閱我的電子報</h2>
+          <p class="subscribe__desc">不定期分享設計與前端的觀察筆記，留下你的 Email，第一時間收到新文章。</p>
+        </div>
+        <form class="subscribe__form" action="#" method="post">
+          <input type="email" name="email" class="subscribe__input" placeholder="輸入你的 Email" required>
+          <button type="submit" class="btn btn--accent">送出</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer / Contact 頁尾 ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="logo logo--light">Nelson</a>
+          <p class="footer__tagline">前端工程師 · 打造美感與體驗兼具的網頁</p>
+        </div>
+        <div class="footer__contact">
+          <p class="footer__label">CONTACT</p>
+          <a href="mailto:hello@nelson.dev" class="footer__mail">hello@nelson.dev</a>
+          <ul class="footer__social">
+            <li><a href="#" aria-label="Instagram">IG</a></li>
+            <li><a href="#" aria-label="LINE">LINE</a></li>
+            <li><a href="#" aria-label="LinkedIn">IN</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">&copy; 2026 Nelson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true, offset: 80 });</script>
+</body>
+</html>

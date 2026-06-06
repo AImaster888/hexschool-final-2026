@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nelson | 部落格</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== Header 導覽列 ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">Nelson</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#services">服務項目</a></li>
+          <li><a href="index.html#projects">專案作品</a></li>
+          <li><a href="blog.html" class="is-active">部落格</a></li>
+          <li><a href="index.html#subscription">訂閱</a></li>
+          <li><a href="index.html#contact" class="nav__btn">聯絡我</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Blog 橫幅 ===== -->
+  <section class="page-banner">
+    <span class="page-banner__watermark" aria-hidden="true">BLOG</span>
+    <div class="page-banner__inner">
+      <h1 class="page-banner__title">BLOGS</h1>
+      <p class="page-banner__sub">部落格</p>
+    </div>
+  </section>
+
+  <!-- ===== Blogs 文章列表 ===== -->
+  <section class="blogs">
+    <div class="container">
+      <div class="blogs__layout">
+        <div class="list">
+          <ul class="menu">
+            <li><a class="highlight" href="#">全部</a></li>
+            <li><a href="#">品牌設計</a></li>
+            <li><a href="#">平面設計</a></li>
+            <li><a href="#">UIUX設計</a></li>
+            <li><a href="#">網頁設計</a></li>
+            <li><a href="#">設計規範</a></li>
+            <li><a href="#">前端技術</a></li>
+            <li><a href="#">後端架構</a></li>
+            <li><a href="#">AI趨勢應用</a></li>
+          </ul>
+        </div>
+
+        <div class="blog">
+          <article class="container-item" data-aos="fade-up">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_1.png" alt="網頁微互動藝術的抽象幾何流體視覺特效">
+            <div class="content">
+              <div class="label"><span>UIUX 設計 · 網頁設計 · 前端技術</span></div>
+              <h2>網頁裡的微互動藝術：利用 CSS 與 JS 動畫為諮詢網站注入靈魂並提升用戶轉化率</h2>
+              <div class="button">
+                <span>Oct 16, 2022</span>
+                <div class="tail">
+                  <div class="view"><span class="material-symbols-outlined">visibility</span><span>110 views</span></div>
+                  <div class="share"><span class="material-symbols-outlined">share</span><span>2 shares</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="container-item" data-aos="fade-up">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_2.png" alt="智慧型手機畫面上展示的 Figma 介面與 Storybook 設計系統">
+            <div class="content">
+              <div class="label"><span>UIUX 設計 · 設計規範 · 前端技術</span></div>
+              <h2>10年職人手記：如何運用 Figma 與 Storybook 打造美感與邏輯兼具的企業級設計系統</h2>
+              <div class="button">
+                <span>Oct 16, 2022</span>
+                <div class="tail">
+                  <div class="view"><span class="material-symbols-outlined">visibility</span><span>110 views</span></div>
+                  <div class="share"><span class="material-symbols-outlined">share</span><span>2 shares</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="container-item" data-aos="fade-up">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_3.png" alt="陽光照射下的綠色多肉植物盆栽與復古相機">
+            <div class="content">
+              <div class="label"><span>品牌設計 · 平面設計 · UIUX 設計</span></div>
+              <h2>從平面識別到數位體驗：以「植感生活」為例，探討跨媒體品牌視覺在網頁上的精準轉譯</h2>
+              <div class="button">
+                <span>Oct 16, 2022</span>
+                <div class="tail">
+                  <div class="view"><span class="material-symbols-outlined">visibility</span><span>110 views</span></div>
+                  <div class="share"><span class="material-symbols-outlined">share</span><span>2 shares</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="container-item" data-aos="fade-up">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_4.png" alt="設計師正在平板筆電上操作生成式 AI 工具優化前端開發工作流">
+            <div class="content">
+              <div class="label"><span>UIUX 設計 · 前端技術 · AI 趨勢應用</span></div>
+              <h2>當 AI 遇上介面設計：資深設計師如何利用生成式工具重塑前端開發工作流與視覺想像力</h2>
+              <div class="button">
+                <span>Oct 16, 2022</span>
+                <div class="tail">
+                  <div class="view"><span class="material-symbols-outlined">visibility</span><span>110 views</span></div>
+                  <div class="share"><span class="material-symbols-outlined">share</span><span>2 shares</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="container-item" data-aos="fade-up">
+            <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2026-web-camp/blog_5.png" alt="工程師在筆記型電腦上撰寫程式碼並進行金融 App 的後端 API 安全序列串接">
+            <div class="content">
+              <div class="label"><span>前端技術 · 後端架構 · AI 趨勢應用</span></div>
+              <h2>揭開金融 App 的設計密碼：如何優化 Open Bank API 的複雜數據呈現與後端串接安全性</h2>
+              <div class="button">
+                <span>Oct 16, 2022</span>
+                <div class="tail">
+                  <div class="view"><span class="material-symbols-outlined">visibility</span><span>110 views</span></div>
+                  <div class="share"><span class="material-symbols-outlined">share</span><span>2 shares</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <nav class="pagination" aria-label="分頁">
+            <a href="#" class="is-active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">…</a>
+            <a href="#">20</a>
+            <a href="#" aria-label="下一頁">&rarr;</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Subscription 訂閱區 ===== -->
+  <section class="subscribe" id="subscription">
+    <div class="container">
+      <div class="subscribe__box" data-aos="fade-up">
+        <div class="subscribe__text">
+          <p class="section__label">SUBSCRIPTION</p>
+          <h2 class="section__title">訂閱我的電子報</h2>
+          <p class="subscribe__desc">不定期分享設計與前端的觀察筆記，留下你的 Email，第一時間收到新文章。</p>
+        </div>
+        <form class="subscribe__form" action="#" method="post">
+          <input type="email" name="email" class="subscribe__input" placeholder="輸入你的 Email" required>
+          <button type="submit" class="btn btn--accent">送出</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer / Contact 頁尾 ===== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="logo logo--light">Nelson</a>
+          <p class="footer__tagline">前端工程師 · 打造美感與體驗兼具的網頁</p>
+        </div>
+        <div class="footer__contact">
+          <p class="footer__label">CONTACT</p>
+          <a href="mailto:hello@nelson.dev" class="footer__mail">hello@nelson.dev</a>
+          <ul class="footer__social">
+            <li><a href="#" aria-label="Instagram">IG</a></li>
+            <li><a href="#" aria-label="LINE">LINE</a></li>
+            <li><a href="#" aria-label="LinkedIn">IN</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">&copy; 2026 Nelson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 700, once: true, offset: 80 });</script>
+</body>
+</html>
