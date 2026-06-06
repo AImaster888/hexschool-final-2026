@@ -42,10 +42,9 @@ Header 導覽列 → Hero 主視覺 → Services 服務區（深色）→ Projec
 
 ## 參考來源
 
-- **設計稿（Figma）**：六角學院 2026 軟體工程師體驗營設計稿
-- **流程方法論參考**：[yan302/2026-web-camp](https://github.com/yan302/2026-web-camp)（僅參考切版流程，未複製程式碼）
-- **版面比對參考**：[dorisho54 同學作業](https://dorisho54.github.io/final-homework/)（用於比對設計稿還原版面）
-- **Blogs 部落格區**：整合自本人先前的 Flex 切版練習 [CodePen](https://codepen.io/cychen-yuyu/pen/RNoZVRq)，並調整命名與配色以融入本站
+- **設計稿（Figma）**：六角學院 2026 軟體工程師體驗營設計稿（版面、尺寸、配色依此還原）
+- **切版流程**：參考六角學院課程與公開的 Flex / RWD 切版教學示範
+- **Blogs 部落格區**：整合自本人先前的 Flex 切版練習 [CodePen](https://codepen.io/cychen-yuyu/pen/RNoZVRq)，並重新命名 class、調整配色以融入本站
 - **動畫**：[AOS.js](https://github.com/michalsnik/aos) 2.3.1（透過 CDN 引入，用於圖片與卡片的捲動進場效果）
 
 ## GitHub Pages
