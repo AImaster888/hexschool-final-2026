@@ -44,7 +44,6 @@ Header 導覽列 → Hero 主視覺 → Services 服務區（深色）→ Projec
 
 - **設計稿（Figma）**：六角學院 2026 軟體工程師體驗營設計稿（版面、尺寸、配色依此還原）
 - **切版流程**：參考六角學院課程與公開的 Flex / RWD 切版教學示範
-- **Blogs 部落格區**：整合自本人先前的 Flex 切版練習 [CodePen](https://codepen.io/cychen-yuyu/pen/RNoZVRq)，並重新命名 class、調整配色以融入本站
 - **動畫**：[AOS.js](https://github.com/michalsnik/aos) 2.3.1（透過 CDN 引入，用於圖片與卡片的捲動進場效果）
 
 ## GitHub Pages
