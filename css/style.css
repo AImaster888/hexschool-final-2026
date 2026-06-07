@@ -610,7 +610,7 @@ body {
   .hero__inner { flex-direction: column; text-align: center; }
   .hero__image { flex: none; width: 100%; max-width: 360px; }
   .hero__actions { justify-content: center; }
-  .hero__deco { display: none; }
+  .hero__deco, .hero__group { display: none; }
 
   /* Services：單欄 */
   .services__grid { grid-template-columns: 1fr; }
