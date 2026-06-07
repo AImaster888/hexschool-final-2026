@@ -48,4 +48,4 @@ Header 導覽列 → Hero 主視覺 → Services 服務區（深色）→ Projec
 
 ## GitHub Pages
 
-> 部署後補上網址：`https://<你的帳號>.github.io/<repo 名稱>/`
+🔗 線上 Demo：<https://aimaster888.github.io/hexschool-final-2026/>
